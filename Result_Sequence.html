@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <title>Result Sequence</title>
+    <link rel="stylesheet" href="./css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="./css/Result_Sequence.css" media="screen">
+    <script class="u-script" type="text/javascript" src="./js/jquery1.js"></script>
+    <script class="u-script" type="text/javascript" src="./js/jquery2.js"></script>
+    <script class="u-script" type="text/javascript" src="./js/nicepage.js"></script>
+    <link id="u-theme-google-font" rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Oswald:200,300,400,500,600,700|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Oswald:200,300,400,500,600,700">
+
+
+
+    <script type="application/ld+json">{
+    		"@context": "http://schema.org",
+    		"@type": "Organization",
+    		"name": "Project MOBIUS",
+    		"logo": "./img/infinity.png",
+    		"sameAs": [
+    				"About.html",
+    				"www.github.com",
+    				"www.linkedin.com"
+    		]
+    }   </script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Home">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  </head>
+
+  <body class="u-body u-overlap u-overlap-transparent u-stick-footer u-xl-mode">
+    <header class="u-align-right u-clearfix u-header" id="sec-8c0d">
+      <div class="u-clearfix u-sheet u-sheet-1"></div>
+    </header>
+    <section class="u-align-left u-clearfix u-image u-section-1" id="carousel_03b4" data-image-width="3264"
+      data-image-height="2448">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-left u-text u-text-default u-title u-text-1"><span
+            class="u-file-icon u-icon u-text-palette-3-base u-icon-1"><img src="./img/5.png"
+              alt=""></span>&nbsp;​&nbsp;WELCOM​E <span style="font-size: 3rem;">TO</span>
+        </h1>
+        <h1 class="u-align-right u-text u-text-default u-title u-text-2">PROJECT MOBIUS</h1>
+        <h2
+          class="u-align-right u-custom-font u-font-montserrat u-subtitle u-text u-text-default u-text-palette-1-dark-1 u-text-3">
+          <span style="font-weight: 700;">M</span>ulti-<span style="font-weight: 700;">O</span>ption <span
+            style="font-weight: 700;">B</span>io<span style="font-weight: 700;">I</span>nformatics <span
+            style="font-weight: 700;">U</span>niversal <span style="font-weight: 700;">S</span>earch
+        </h2>
+        <p
+          class="u-align-right u-custom-font u-font-montserrat u-large-text u-text u-text-default u-text-variant u-text-4">
+          SCROLL DOWN FOR RESULTS</p>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-section-2" name="section_nucleotide" id="section_nucleotide">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-grey-70 u-text-1"><span class="u-file-icon u-icon u-text-palette-2-base u-icon-1"><img
+              src="./img/6.png" alt=""></span>&nbsp;<span class="u-text-palette-1-base">GENERAL SUMMARY</span>
+          <br>
+        </h1>
+        <div class="u-align-center"></div>
+        <table class="u-table-seq" name="table_nucleotide">
+          <colgroup>
+            <col width="25%">
+            <col width="25%">
+            <col width="25%">
+            <col width="25%">
+          </colgroup>
+          <tbody class="u-tbody-seq">
+            <tr class="u-tr">
+              <td><label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-1">Sequence
+                  Type</label>
+                <input type="text" placeholder="DNA/RNA" id="text-fcdd" name="rslt_seqtype"
+                  class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-1">
+              </td>
+              <td><label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-1">Sequence
+                  Type</label>
+                <input type="text" placeholder="DNA/RNA" id="text-fcdd" name="rslt_seqtype"
+                  class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-1">
+              </td>
+              <td> <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-2">Length</label>
+                <input type="text" placeholder="#" id="text-5b35" name="rslt_seqcount"
+                  class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-2">
+              </td>
+              <td><label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-3">G/C Ratio</label>
+                <input type="text" placeholder="N/A" id="text-827b" name="rslt_gcratio"
+                  class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-3">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="text-8203" class="u-custom-font u-font-montserrat u-label u-label-8">% C</label>
+                <input type="text" placeholder="#" id="text-8203" name="rslt_percentc"
+                  class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-8">
+              </td>
+              <td>
+                <label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-5">% A</label>
+                <input type="text" placeholder="#" id="text-fcdd" name="rslt_percenta"
+                  class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-5">
+              </td>
+              <td>
+                <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-6">% T (DNA) / % U
+                  (RNA)</label>
+                <input type="text" placeholder="#" id="text-5b35" name="rslt_percentut"
+                  class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-6">
+              </td>
+              <td>
+                <label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-7">% G</label>
+                <input type="text" placeholder="#" id="text-827b" name="rslt_percentg"
+                  class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-7">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </section>
+
+
+    <!--SEPARATED BASED ON SEQUENCES OF PROTEIN OR DNA. SECTION 2 IS FOR DNA/RNA AND SECTION 3 IS FOR PROTEINS-->
+    <section class="u-align-center u-clearfix u-section-3" name="section_protein" id="section_protein">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-grey-70 u-text-1"><span class="u-file-icon u-icon u-text-palette-2-base u-icon-1"><img
+              src="./img/6.png" alt=""></span>&nbsp;<span class="u-text-palette-1-base">GENERAL SUMMARY</span>
+          <br>
+        </h1>
+        <div class="u-align-center">
+          <table class="u-table-seq" name="table_protein">
+            <colgroup>
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+              <col width="25%">
+            </colgroup>
+            <tbody class="u-tbody-seq">
+              <tr class="u-tr">
+                <td>
+                  <label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-1">Sequence Type</label>
+                  <input type="text" placeholder="Protein" id="text-fcdd" name="rslt_seqtype"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-1">
+                </td>
+                <td>
+                  <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-2">Length</label>
+                  <input type="text" placeholder="#" id="text-5b35" name="rslt_seqcount"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-2">
+                </td>
+                <td>
+                  <label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-3">% Hydrophobic</label>
+                  <input type="text" placeholder="#" id="text-827b" name="rslt_percenthydrophobic"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-3">
+                </td>
+                <td>
+                  <label for="text-8203" class="u-custom-font u-font-montserrat u-label u-label-4">%
+                    Hydrophillic</label>
+                  <input type="text" placeholder="" id="text-8203" name="text-3"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-4">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-5">% Positive
+                    Charged</label>
+                  <input type="text" placeholder="#" id="text-fcdd" name="rslt_percentpositivecharge"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-5">
+                </td>
+                <td>
+                  <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-6">% Negative
+                    Charged</label>
+                  <input type="text" placeholder="#" id="text-5b35" name="rslt_percentnegativecharge"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-6">
+                </td>
+                <td>
+                  <label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-7">% Polar</label>
+                  <input type="text" placeholder="#" id="text-827b" name="rslt_percentpolar"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-7">
+                </td>
+                <td>
+                  <label for="text-8203" class="u-custom-font u-font-montserrat u-label u-label-8">%
+                    Non-Polar</label>
+                  <input type="text" placeholder="#" id="text-8203" name="rslt_percentnonpolar"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-8">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-9">Other Amino Acids
+                    Present?</label>
+                  <input type="text" placeholder="Y/N" id="text-fcdd" name="rslt_otheraa"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-9">
+                </td>
+                <td>
+                  <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-10">asparagine/aspartic
+                    acid
+                    (asx) (B)</label>
+                  <input type="text" placeholder="#" id="text-5b35" name="rslt_asx"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-10">
+                </td>
+                <td>
+                  <label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-11">glutamine/glutamic
+                    acid
+                    (glx) (Z)</label>
+                  <input type="text" placeholder="#" id="text-827b" name="rslt_glx"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-11">
+                </td>
+                <td>
+                  <label for="text-8203" class="u-custom-font u-font-montserrat u-label u-label-12">valine (val)
+                    (V)</label>
+                  <input type="text" placeholder="Hide" id="text-8203" name="rslt_val"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-12">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-13">Alanine (ALA)
+                    (A)</label>
+                  <input type="text" placeholder="#" id="text-fcdd" name="rslt_ala"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-13">
+                </td>
+                <td>
+                  <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-14">arginine (arg )
+                    (R)</label>
+                  <input type="text" placeholder="#" id="text-5b35" name="rslt_arg"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-14">
+                </td>
+                <td>
+                  <label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-15">asparagine (asn)
+                    (N)</label>
+                  <input type="text" placeholder="#" id="text-827b" name="rslt_asn"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-15">
+                </td>
+                <td>
+                  <label for="text-8203" class="u-custom-font u-font-montserrat u-label u-label-16">aspartic acid
+                    (asp)
+                    (D)</label>
+                  <input type="text" placeholder="#" id="text-8203" name="rslt_asp"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-16">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-17">cysteine (cys)
+                    (C)</label>
+                  <input type="text" placeholder="#" id="text-fcdd" name="rslt_cys"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-17">
+                </td>
+                <td>
+                  <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-18">glutamine (gln)
+                    (Q)</label>
+                  <input type="text" placeholder="#" id="text-5b35" name="rslt_gln"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-18">
+                </td>
+                <td>
+                  <label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-19">glutamic acid
+                    (glu)
+                    (E)</label>
+                  <input type="text" placeholder="#" id="text-827b" name="rslt_glu"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-19">
+                </td>
+                <td>
+                  <label for="text-8203" class="u-custom-font u-font-montserrat u-label u-label-20">glycine (gly)
+                    (G)</label>
+                  <input type="text" placeholder="#" id="text-8203" name="rslt_gly"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-20">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-21">histidine (his)
+                    (H)</label>
+                  <input type="text" placeholder="#" id="text-fcdd" name="rslt_his"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-21">
+                </td>
+                <td>
+                  <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-22">isoleucine (ile)
+                    (I)</label>
+                  <input type="text" placeholder="#" id="text-5b35" name="rslt_ile"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-22">
+                </td>
+                <td>
+                  <label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-23">leucine (leu)
+                    (L)</label>
+                  <input type="text" placeholder="#" id="text-827b" name="rslt_leu"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-23">
+                </td>
+                <td>
+                  <label for="text-8203" class="u-custom-font u-font-montserrat u-label u-label-24">lysine (lys)
+                    (K)</label>
+                  <input type="text" placeholder="#" id="text-8203" name="rslt_lys"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-24">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-25">methionine (met)
+                    (M)</label>
+                  <input type="text" placeholder="#" id="text-fcdd" name="rslt_met"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-25">
+                </td>
+                <td>
+                  <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-26">phenylalanine
+                    (phe)
+                    (F)</label>
+                  <input type="text" placeholder="#" id="text-5b35" name="rslt_phe"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-26">
+                </td>
+                <td>
+                  <label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-27">proline (pro)
+                    (P)</label>
+                  <input type="text" placeholder="#" id="text-827b" name="rslt_pro"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-27">
+                </td>
+                <td>
+                  <label for="text-8203" class="u-custom-font u-font-montserrat u-label u-label-28">serine (ser)
+                    (S)</label>
+                  <input type="text" placeholder="#" id="text-8203" name="rslt_ser"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-28">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="text-fcdd" class="u-custom-font u-font-montserrat u-label u-label-29">threonine (thr)
+                    (T)</label>
+                  <input type="text" placeholder="#" id="text-fcdd" name="rslt_thr"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-29">
+                </td>
+                <td>
+                  <label for="text-5b35" class="u-custom-font u-font-montserrat u-label u-label-30">tryptophan (trp)
+                    (W)</label>
+                  <input type="text" placeholder="#" id="text-5b35" name="rslt_trp"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-30">
+                </td>
+                <td> <label for="text-827b" class="u-custom-font u-font-montserrat u-label u-label-31">tyrosine (tyr)
+                    (Y)</label>
+                  <input type="text" placeholder="#" id="text-827b" name="rslt_tyr"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-31">
+                </td>
+                <td> <label for="text-8203" class="u-custom-font u-font-montserrat u-label u-label-32">valine (val)
+                    (V)</label>
+                  <input type="text" placeholder="#" id="text-8203" name="rslt_val"
+                    class="u-border-1 u-border-grey-5 u-custom-font u-font-courier-new u-grey-5 u-input u-input-rectangle u-text-grey-90 u-input-32">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION ON TOOLS START HERE -->
+    <section class="u-align-center u-clearfix u-section-4" id="carousel_35aa">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-grey-70 u-text-1"><span class="u-file-icon u-icon u-text-palette-2-base u-icon-1"><img
+              src="./img/6.png" alt=""></span>&nbsp;<span class="u-text-palette-1-base">TOOLS RESULTS</span>
+          <br>
+        </h1>
+        <div
+          class="u-align-center u-border-2 u-border-palette-1-base u-container-style u-group u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-valign-bottom u-container-layout-1">
+            <div class="fr-view u-clearfix u-rich-text u-text u-text-2">
+              <h1>
+                <span class="u-text-palette-1-dark-1">
+                  <span class="u-custom-font u-font-montserrat">#ToolName</span>
+                </span>
+              </h1>
+            </div>
+            <div class="u-table u-table-responsive u-table-1">
+              <table class="u-table-entity">
+                <colgroup>
+                  <col width="33.3%">
+                  <col width="33.3%">
+                  <col width="33.4%">
+                </colgroup>
+                <thead class="u-palette-1-light-3 u-table-header u-table-header-1">
+                  <tr style="height: 124px;">
+                    <th
+                      class="u-border-8 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-2 u-table-cell u-table-cell-1">
+                    </th>
+                    <th
+                      class="u-border-8 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-2 u-table-cell u-table-cell-2">
+                    </th>
+                    <th
+                      class="u-border-8 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-2 u-table-cell u-table-cell-3">
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="u-custom-font u-font-arial u-table-body">
+                  <tr style="height: 124px;">
+                    <td class="u-table-cell"></td>
+                    <td class="u-table-cell"></td>
+                    <td class="u-table-cell"></td>
+                  </tr>
+                  <tr style="height: 134px;">
+                    <td class="u-table-cell"></td>
+                    <td class="u-table-cell"></td>
+                    <td class="u-table-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--SECTION ON DATABASES START HERE-->
+    <section class="u-align-center u-clearfix u-section-5" id="carousel_701a">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-grey-70 u-text-1"><span class="u-file-icon u-icon u-text-palette-2-base u-icon-1"><img
+              src="./img/6.png" alt=""></span>&nbsp;<span class="u-text-palette-1-base">Database Findings</span>
+          <br>
+        </h1>
+        <div
+          class="u-align-center u-border-2 u-border-palette-1-base u-container-style u-group u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-valign-bottom u-container-layout-1">
+            <div class="fr-view u-clearfix u-rich-text u-text u-text-2">
+              <h1>
+                <span class="u-text-palette-1-dark-1">
+                  <span class="u-custom-font u-font-montserrat">#DatabaseName</span>
+                </span>
+              </h1>
+            </div>
+            <div class="u-table u-table-responsive u-table-1">
+              <table class="u-table-entity">
+                <colgroup>
+                  <col width="33.3%">
+                  <col width="33.3%">
+                  <col width="33.4%">
+                </colgroup>
+                <thead class="u-palette-1-light-3 u-table-header u-table-header-1">
+                  <tr style="height: 124px;">
+                    <th
+                      class="u-border-8 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-2 u-table-cell u-table-cell-1">
+                    </th>
+                    <th
+                      class="u-border-8 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-2 u-table-cell u-table-cell-2">
+                    </th>
+                    <th
+                      class="u-border-8 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-2 u-table-cell u-table-cell-3">
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="u-custom-font u-font-arial u-table-body">
+                  <tr style="height: 124px;">
+                    <td class="u-table-cell"></td>
+                    <td class="u-table-cell"></td>
+                    <td class="u-table-cell"></td>
+                  </tr>
+                  <tr style="height: 134px;">
+                    <td class="u-table-cell"></td>
+                    <td class="u-table-cell"></td>
+                    <td class="u-table-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="u-clearfix u-footer u-palette-5-light-1" id="sec-50b0">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-gutter-10 u-layout-wrap u-layout-wrap-1">
+          <div class="u-gutter-0 u-layout">
+            <div class="u-layout-row">
+              <div
+                class="u-align-center-sm u-align-center-xs u-align-left-md u-align-left-xl u-container-style u-layout-cell u-left-cell u-size-22 u-layout-cell-1">
+                <div class="u-container-layout u-valign-middle u-container-layout-1">
+                  <!--position-->
+                  <div data-position="" class="u-position">
+                    <!--block-->
+                    <div class="u-block">
+                      <div class="u-block-container u-clearfix">
+                        <!--block_header-->
+                        <h5
+                          class="u-align-center u-block-header u-custom-font u-font-montserrat u-text u-text-default u-v-spacing-0 u-text-1">
+                          <!--block_header_content--> Thank you for using Project MOBIUS!
+                          <!--/block_header_content-->
+                        </h5>
+                        <!--/block_header-->
+                      </div>
+                    </div>
+                    <!--/block-->
+                  </div>
+                  <!--/position-->
+                </div>
+              </div>
+              <div class="u-align-center-sm u-align-right-md u-container-style u-layout-cell u-size-15 u-layout-cell-2">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <a href="Home.html" data-page-id="13556816" class="u-image u-logo u-image-1" data-image-width="512"
+                    data-image-height="512" title="Home">
+                    <img src="./img/infinity.png" class="u-logo-image u-logo-image-1">
+                  </a>
+                </div>
+              </div>
+              <div
+                class="u-align-center-sm u-align-center-xs u-align-left-md u-align-right-lg u-align-right-xl u-container-style u-layout-cell u-right-cell u-size-23 u-layout-cell-3">
+                <div class="u-container-layout u-container-layout-3">
+                  <div class="u-social-icons u-spacing-10 u-social-icons-1">
+                    <a class="u-social-url" title="About" href="About.html"><span
+                        class="u-file-icon u-icon u-social-icon u-social-twitter u-text-palette-5-dark-2 u-icon-1"><img
+                          src="./img/2.png" alt=""></span>
+                    </a>
+                    <a class="u-social-url" title="GitHub" target="_blank" href="www.github.com"><span
+                        class="u-file-icon u-icon u-social-icon u-social-instagram u-icon-2"><img
+                          src="./img/1051377.png" alt=""></span>
+                    </a>
+                    <a class="u-social-url" title="LinkedIn" target="_blank" href="www.linkedin.com"><span
+                        class="u-file-icon u-icon u-social-icon u-social-linkedin u-icon-3"><img src="./img/356096.png"
+                          alt=""></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-design" target="_blank">
+        <span>Website Design</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="https://nicepage.com/static-site-generator" target="_blank">
+        <span>Static Website Generator</span>
+      </a>.
+    </section>
+  </body>
+
+</html>

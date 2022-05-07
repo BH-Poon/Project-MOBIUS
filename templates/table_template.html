@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+ 
+    <head>
+        {% block head %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <title>Home</title>
+        <link rel="stylesheet" href="./css/nicepage.css" media="screen">
+        <link rel="stylesheet" href="./css/Home.css" media="screen">
+        <script class="u-script" type="text/javascript" src="./js/jquery1.js"></script>
+        <script class="u-script" type="text/javascript" src="./js/jquery2.js"></script>
+        <script type="text/javascript" src="./js/Home.js"></script>
+        <script class="u-script" type="text/javascript" src="./js/nicepage.js"></script>
+        <link id="u-theme-google-font" rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+        <link id="u-page-google-font" rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Oswald:200,300,400,500,600,700|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Oswald:200,300,400,500,600,700">
+
+
+        <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Project MOBIUS",
+		"logo": "img/infinity.png",
+		"sameAs": [
+				"About.html",
+				"www.github.com",
+				"www.linkedin.com"
+        ]
+        }</script>
+        <meta name="theme-color" content="#478ac9">
+        <meta property="og:title" content="Home">
+        <meta property="og:description" content="">
+        <meta property="og:type" content="website">
+        {% endblock %}
+    </head>
+
+
+    <form action="#/" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
+        name="input_historical_search" id="input_historical_search">
+        <div class="u-expanded-width u-table u-table-responsive u-table-1 u-form u-form-1">
+            <table class="u-table-entity">
+                <colgroup>
+                    <col width="13.7%">
+                    <col width="15.5%">
+                    <col width="13.8%">
+                    <col width="50.8%">
+                    <col width="6.2%">
+                </colgroup>
+                <thead class="u-align-center u-palette-5-dark-1 u-table-header u-table-header-1">
+                    <tr style="height: 52px;">
+                        <th class="u-table-cell">Date</th>
+                        <th class="u-table-cell">Time</th>
+                        <th class="u-table-cell">Search Type</th>
+                        <th class="u-table-cell">Search Input</th>
+                        <th class="u-table-cell">Select</th>
+                    </tr>
+                </thead>
+                <tbody class="u-align-center u-table-alt-palette-1-light-3 u-table-body">
+
+                    {% for index in index_num %}
+                    <tr style="height: 65px;">
+                        <td
+                            class="u-border-3 u-border-no-bottom u-border-no-top u-border-palette-5-dark-1 u-table-cell">
+                            {{date[index]}}</td>
+                        <td
+                            class="u-border-3 u-border-no-bottom u-border-no-top u-border-palette-5-dark-1 u-table-cell">
+                            {{time[index]}}</td>
+                        <td
+                            class="u-border-3 u-border-no-bottom u-border-no-top u-border-palette-5-dark-1 u-table-cell">
+                            {{search_type[index]}}</td>
+                        <td
+                            class="u-border-3 u-border-no-bottom u-border-no-top u-border-palette-5-dark-1 u-table-cell">
+                            {{search_input[index]}}</td>
+                        <td
+                            class="u-border-3 u-border-no-bottom u-border-no-top u-border-palette-5-dark-1 u-table-cell">
+                            <input type="checkbox" id="{{uid[index]}}" name="{{uid[index]}}" value="{{uid[index]}}">
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="u-align-center u-form-group u-form-submit">
+            <a href="#"
+                class="u-border-none u-btn u-btn-round u-btn-submit u-button-style u-radius-50 u-text-active-white u-text-palette-1-base u-btn-1">Submit</a>
+            <input type="submit" value="submit" id="submit_history_search" class="u-form-control-hidden">
+        </div>
+    </form>
+
+</html>
