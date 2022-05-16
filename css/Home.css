@@ -49,6 +49,10 @@ html {
   .u-section-1 .u-text-4 {
     margin-top: -52px;
   }
+  .u-table-entity .u-table-1 {
+    max-width: max-content;
+    min-width: max-content;
+  }
 }
 
 @media (max-width: 991px) {
@@ -926,10 +930,17 @@ html {
   background-color: none;
   border: bottom 50px;
   border-color: #b29a36;
+  min-height: auto;
+  margin-bottom: 30px;
+
+}
+
+.u-section-5 .u-table-div {
+  display: block;
 }
 
 .u-section-5 .u-sheet-1 {
-  min-height: 100vh;
+  min-height: auto;
 }
 
 .u-section-5 .u-text-1 {
@@ -943,8 +954,10 @@ html {
 }
 
 .u-section-5 .u-table-1 {
-  height: 324px;
-  margin: 30px auto 0;
+  height: auto;
+  width:max-content;
+  overflow-x: scroll;
+  
 }
 
 .u-block-2991-9 {
@@ -954,6 +967,11 @@ html {
 .u-section-5 .u-table-header-1 {
   font-weight: 700;
   background-image: none;
+}
+
+.u-table-entity .u-table-cell-input{
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .u-section-5 .u-table-cell-6 {
@@ -1075,7 +1093,7 @@ html {
 
 @media (max-width: 767px) {
   .u-section-5 .u-sheet-1 {
-    min-height: 924px;
+    min-height: auto;
   }
 
   .u-section-5 .u-text-1 {
@@ -1106,10 +1124,11 @@ html {
     margin-top: -894px;
   }
 
-  .u-section-5 .u-table-1 {
+  table.u-table-entity .u-table-1 {
     margin-top: 30px;
     margin-right: initial;
     margin-left: initial;
+    min-width: 1300px;
   }
 
   .u-section-5 .u-form-1 {

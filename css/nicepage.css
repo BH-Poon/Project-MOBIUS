@@ -675,7 +675,7 @@ optgroup {
 
 button,
 input {
-  overflow: visible;
+  overflow: hidden;
 }
 
 button,
@@ -2486,7 +2486,7 @@ a {
 }
 
 .u-form-vertical .u-form-submit {
-  margin-bottom: 0 !important;
+  margin-bottom: 20px !important;
 }
 
 @media (max-width: 767px) {
@@ -16173,6 +16173,9 @@ section.u-image:not(.u-hover-box),
   object-fit: contain;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  border-end-end-radius: 50%;
+
 }
 
 .u-back-to-top {
@@ -20158,8 +20161,13 @@ img.u-opacity-0,
 
 .u-social-icons a {
   height: 100%;
-  display: inline-block;
+  display:inline-flex;
   flex: 1;
+}
+
+.u-social-icons .author {
+  height: 50% !important;
+  box-sizing: none !important;
 }
 
 blockquote {
@@ -20593,7 +20601,6 @@ blockquote .small:before {
   flex-flow: row;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.3);
-  overflow: auto;
 }
 
 .pswp__previews img {
@@ -20646,7 +20653,6 @@ blockquote .small:before {
   position: relative;
   background: none;
   cursor: pointer;
-  overflow: visible;
   -webkit-appearance: none;
   display: block;
   border: 0;
@@ -23277,7 +23283,7 @@ a.pswp__share--download:hover {
 
 @media (max-width: 767px) {
   .u-table-responsive {
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
   }
 
@@ -23695,7 +23701,7 @@ a.pswp__share--download:hover {
 .u-layout-horizontal .u-gallery-inner {
   width: 100%;
   height: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
   scrollbar-width: none;
 }
@@ -43856,7 +43862,7 @@ blockquote {
 
 .u-footer .u-layout-wrap-1 {
   width: 100%;
-  margin: 10px 0 -635px;
+  margin: 10px 0 100px;
 }
 
 .u-footer .u-layout-cell-1 {
@@ -43899,14 +43905,17 @@ blockquote {
 
 .u-footer .u-container-layout-3 {
   padding: 20px 0;
+  align-content: center;
 }
 
 .u-footer .u-social-icons-1 {
   white-space: nowrap;
+  justify-content: space-between;
   min-height: 16px;
   width: 317px;
   min-width: 170px;
   margin: 0 auto;
+  align-items: center;
 }
 
 .u-footer .u-icon-1 {

@@ -1,13 +1,14 @@
 #!/usr/local/bin/python3
-
 import cgi
 import cgitb
 from datetime import datetime
-import os
 import sys
-from tokenize import String
 import jinja2
 import mysql.connector
+import present_search_seq as seq
+import present_search_acc as acc
+import db_search
+
 
 # Author: Brian Poon
 # Class: AS410.712.82
@@ -16,11 +17,7 @@ import mysql.connector
 # Description: This will run when the submission button is hit 
 # on the main page of the search. 
 
-def load_template():
-    # Delcaring the FASTA file to be used and opening the file, which
-    # must be in the same directory as this script given the filepath.
-    file_fasta = './data/e_coli_k12_dh10b.faa'
-    open_fasta = open(file_fasta)
+def load_template_acc(pacc_info, pdb_list, pdb_api):
 
     # Directing the template filepath for template loader
     templateLoader = jinja2.FileSystemLoader(searchpath='./templates')
@@ -28,142 +25,164 @@ def load_template():
     # Creating the environment to take the template loader and load
     # a specfic template in the folder.
     env = jinja2.Environment(loader=templateLoader)
-    template = env.get_template('unit04.html')
+    template = env.get_template('result_accession_template.html')
+    
+    # Macro in Jinja written to pull from another template, but must 
+    # add in the ptool_list and ptool_api lists to trigger it. And vice 
+    # versa for pdb_list and pdb_api. So those two lists must be added 
+    # into the rendering.
+    print ("Content-Type: text/html\n\n")
+    print(template.render(db_list=pdb_list, db_api=pdb_api,
+            seq_info=pacc_info))
 
-    # Counter for entries that will limit results to 20 entries 
-    # from the FASTA file.
-    entry_counter = 0
 
-    # This list will contain the index of records or rows in the HTML
-    # that will be displayed. 
-    index_num = []
+def load_template_seq(pseq_info, ptool_list, ptool_api, pdb_list, pdb_api):
 
-    # This list will contain the ID of the genes in the FASTA file.
-    gene_id = {}
+    templateLoader = jinja2.FileSystemLoader(searchpath='./templates')
+    env = jinja2.Environment(loader=templateLoader)
+    template = env.get_template('result_sequence_template.html')
 
-    # This list will contain the sequence lengths for the FASTA entry.
-    sequence_length = {}
+    aa_dict = (pseq_info[1][0]).copy()
+    value_list = list(aa_dict.values())
+    aa_list = list(aa_dict.keys())
+    
+    # Macro in Jinja written to pull from another template, but must 
+    # add in the tool_list and tool_api lists to trigger it. So those 
+    # two lists must be added into the rendering.
+    print ("Content-Type: text/html\n\n")
+    print(template.render(tool_list=ptool_list, tool_api=ptool_api,
+            db_list=pdb_list, db_api=pdb_api, seq_info=pseq_info,
+            value_list=value_list, aa_list=aa_list,))
 
-    # This list will contain the remaining header information.
-    header_info = {}
 
-    # This Boolean will help determine when the reading starts
-    start_key = False
+def selected_tools(form, input_statement):
+    # Create a dictionary of all the element IDs for all tools
+    tool_id = ['cbx_blast', 'cbx_orffinder', 'cbx_splign', 'cbx_igv']
 
-    for line in open_fasta:
+    selected_options = []
 
-        # Identify lines that the record will begin at.
-        if line.startswith('>'):
-            start_key = True
+    input_statement = input_statement+';tools='
+    
+    if len(selected_options)==0:
+        selected_options.append("NULL")
+    else:
+        for i in range(len(tool_id)):
             
-            # Once the entry hits the maximum desired, break the loop.
-            if entry_counter == 20:
-                break
+            if  form.getvalue(tool_id[i]):
+                selected_options.append(tool_id[i])
+                input_statement = input_statement+tool_id[i]+'+'
+   
+    return [selected_options, input_statement]
+
+
+
+def selected_dbs(form, input_statement):
+    # Create a dictionary of all the element IDs for all databases
+    db_id = ['cbx_genbank', 'cbx_ensembl', 'cbx_omim']
+
+    selected_options = []
+
+    input_statement = input_statement+';dbs='
+    if len(selected_options)==0:
+        selected_options.append("NULL")
+    else:
+        for i in range(len(db_id)):
             
-            # Start the record based on index = 1
-            entry_counter = entry_counter + 1
-            index_num.append(entry_counter)
+            if  form.getvalue(db_id[i]):
+                selected_options.append(db_id[i])
+                input_statement = input_statement + db_id[i]+'+'
 
-            # Initiate 0 in list of length based on record number.
-            sequence_length[entry_counter] = 0
-            
-            # Remove the newline and '>' character. Extract the header 
-            # information with rsplit.
-            line = line.rstrip('\n').rstrip('>')
-            header = line.rsplit('|')
-
-            # Rejoin the information for just the gene that's split 
-            # and insert into the list according to the entry counter.
-            gene = '|'.join([header[i] for i in [0,1,2,3]])
-            gene_id[entry_counter] = gene
-
-            # Get header information, strip the whitespace on the left,
-            # and insert into header_info list according to entry counter.
-            info = header[4].lstrip()
-            header_info[entry_counter] = info
-
-            # This will ensure that headers are not going to be counted 
-            # in counting total length below.
-            continue
-
-        # Begin processing the length of sequence.
-        if start_key == True:
-            line = line.rstrip('\n')
-            line_sum = len(line)
-            current = sequence_length.get(entry_counter)
-            sequence_length.update({entry_counter : current + line_sum})
-
-    # Good habits of closing the file at the end.
-    open_fasta.close
-
-    # Send the information to HTML by referencing the variables 
-    # to pass between CGI and HTML.
-    print("Content-Type: text/html\n\n")
-    print(template.render(geneID=gene_id, rec = index_num, 
-        seq_len=sequence_length, header=header_info))
-
+    return [selected_options, input_statement]
 
 def main():
 
+    #Debug mode
+    #print("Content-Type: text/html\n\n\n\n\n")
+    #cgitb.enable()
+
     # Create the desired connection and cursor.
     conn = mysql.connector.connect(user='bpoon1', password='Testing123',
-                                   host='localhost', database='bpoon1')
+                                   host='localhost', database='bpoon1', 
+                                   get_warnings=True)
     cursor = conn.cursor()
-
-    # To help with troubleshooting passing of values
-    cgitb.enable(display=0, logdir="/path/to/logdir")
-
-    # Create a dictionary of all the element IDs for tools and databases
-    tool_id = ['cbx_blast', 'cbx_orffinder', 'cbx_splign', 'cbx_igv']
-    db_id = ['cbx_genbank', 'cbx_ensembl', 'cbx_omim']
-
-    # Create an pointer to the submitted form and get values
+    
+    # Create an pointer to the submitted form and get values hidden in HTML
     form = cgi.FieldStorage()
-    search_type = form.getvalue('submit_now_type')
+    
+    search_type = str(form.getvalue('submit_now_type'))
+    ip = str(form.getvalue('user_ip'))    
 
-    # Create empty list of tools and databases chosen for. Also create
-    # other starting variables that would be used. UID will be the IP
-    # address obtaind by REMOTE_ADDR in the format date::IP::time
-    input_tools = []
-    input_db = []
-    input_statement = '++tools++'
-    date_time= datetime().now()  
-    uid = str(date_time.date())+'::'+os.environ["REMOTE_ADDR"]+'::'+str(date_time.time())
+    # Create serach_input. IP is passed from JSON
+    date_time= datetime.now()
+    date = str(date_time.date())
+    time = str(date_time.time())
+    uid = date+'::'+ip+'::'+time
 
-    for i in range(len(tool_id)):
-        
-        a = form.getvalue(tool_id[i])
-        
-        if a == True:
-            input_tools.append(tool_id[i])
-            input_statement = input_statement + tool_id[i]+'+'
+    out_file_path = '/var/www/html/bpoon1/final/data/' + str(date_time) +'-' + ip + '.fasta'
+    fileobj = open(out_file_path,'w+' )   # w+ mode creates the file if its not exists
 
-    input_statement = input_statement + '++db++'
-    for i in range(len(db_id)):
+    # Create start of search_input and the list of tools and
+    # databases chosen for by user to append to it. Functions will 
+    # automatically append to input statement
+    input_statement = ''
 
-        a = form.getvalue(db_id[i])
+    func_tools = selected_tools(form, input_statement)
+    input_tools = func_tools[0] # Get the list of tools that we're going to use
+    input_statement = func_tools[1] # Input statement will add on
 
-        if a == True:
-            input_db.append(db_id[i])
-            input_statement = input_statement + db_id[i]+'+'
-
+    func_dbs = selected_dbs(form, input_statement)
+    input_dbs = func_dbs[0]
+    input_statement = func_dbs[1]
+    
     # Based on whether it is an accession or a sequence it forks.
     if (search_type == "s"):
+        
         sequence = form.getvalue('input_sequence')
-        input_statement = input_statement + '++seq++' + sequence
-    
+        fileobj.write(sequence)
+        fileobj.close()
+        input_statement = ';seq=' + sequence + '\n' +  input_statement
+       
+        # Begin passing information to sequence python file
+        sequence_processed = seq.main(out_file_path)   
+        api_tools = seq.get_tools(out_file_path, input_tools, sequence_processed[0])
+        api_database = db_search.main(out_file_path, input_dbs, search_type)
+
+        # Nucleotides: seq_type; seq_info{nt_dict{}, total, gc_ratio, pA, pT, pG, pC, pU}
+        # Proteins: seq_type; seq_info {aa_dict{}, total, pHydrophobic, pHydrophilic,
+        #           pPosCharge, pNegCharge, pPolar, pNonPolar, unique_aa}
+
+        # Send result to sequence template
+        load_template_seq(sequence_processed, input_tools, api_tools, input_dbs, api_database)
+
     if (search_type == "a"):
         accession = form.getvalue('input_accession')
-        input_statement = input_statement + '++acc++' + accession
-    
-    q_uid = '%'+uid+'%'
-    q_date_time = '%'+date_time+'%'
-    q_search_type = '%'+search_type+'%'
-    q_search_input = '%'+input_statement+'%'
+        fileobj.write(accession)
+        fileobj.close()
+        input_statement = ';acc=' + accession + '\n' + input_statement
+       
+        # Begin passing information to sequence python file
+        acc_processed = acc.main(out_file_path) 
+        api_database = db_search.main(out_file_path, input_dbs, search_type)
 
-    qry_st1 = "INSERT INTO project_mobius"
-    qry_st2 = "VALUES (%s,%s,%s,%s)"
+        # Send result to sequence template
+        load_template_acc(acc_processed, input_dbs, api_database) 
+
+    # Need to format date_time to fit SQL datetime format prior to insertion
+    date_time = datetime.strftime(date_time,'%m-%d-%y %H:%M:%S')
+    
+    qry = "INSERT INTO project_mobius VALUES (%s,%s,%s,%s)"  
+    cursor.execute(qry, (uid, date_time, search_type, input_statement))
+    conn.commit()
+
+    # Print any warnings that might have occurred
+    try:
+        sys.stdout(cursor.fetchwarnings())
+    except:
+        pass
+
+    cursor.close()
+    conn.close()
 
 if __name__ == '__main__':
-    ip = sys.argv[1]
     main()
+
